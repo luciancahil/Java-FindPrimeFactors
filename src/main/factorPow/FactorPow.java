@@ -16,6 +16,8 @@ public class FactorPow {
 		}
 	}
 	
+	public int getExp() 		{return exp;}
+	
 	public String toString() {
 		return "(" + factor + ", " + exp + ")";
 	}

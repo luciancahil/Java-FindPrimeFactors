@@ -17,7 +17,7 @@ public class FindPrimeFactors {
 	}
 	
 	private static void makePrimeList() {
-		boolean[] isPrime = new boolean[bigNum];
+		boolean[] isPrime = new boolean[bigNum+2];
 		
 		for(int i = 2; i<isPrime.length; i++) {
 			isPrime[i] = true;
@@ -59,14 +59,14 @@ public class FindPrimeFactors {
 		input.close();
 	}
 	
-	private static void factorize() {
-		int limit = bigNum; //do not check for primes above the number being tested
+	private static void factorize() {		
 		int i = 0;
-		System.out.println(primes.get(786));
 		
 		while(bigNum!=1) {
 			if(bigNum%primes.get(i) == 0) {
 				FactorPow fp = new FactorPow(primes.get(i), bigNum);
+				bigNum/= Math.pow(primes.get(i), fp.getExp());
+				
 				factorPowers.add(fp);
 			}
 			i++;
