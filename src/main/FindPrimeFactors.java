@@ -9,6 +9,20 @@ public class FindPrimeFactors {
 	static ArrayList<FactorPow> factorPowers = new ArrayList<FactorPow>();
 	
 	public static void main(String[] args) {
+		input();
+		factorize();
+		System.out.println("The prime factorization of " + bigNum + " is " + factorPowers + "."); //outputs method
+	}
+	
+	private static void input() {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter the number to factorize: ");
+		bigNum = input.nextInt();
+		input.close();
+	}
+	
+	private static void factorize() {
 		int limit = bigNum; //do not check for primes above the number being tested
 		int i = 0;
 		
@@ -19,19 +33,5 @@ public class FindPrimeFactors {
 			}
 			i++;
 		}
-		
-		System.out.println(factorPowers);
 	}
-	
-	private static void factorize(int factor) {
-		int exp = 0;
-		
-		while(bigNum%factor == 0) {
-			exp++;
-			bigNum /= factor;
-		}
-		
-		System.out.println(factor + ", " + exp);
-	}
-
 }
